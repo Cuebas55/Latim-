@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latin Treasure Hunt - Learn Latin While Playing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>Latin Treasure Hunt</h1>
+            <div class="game-stats">
+                <div class="stat">Score: <span id="score">0</span></div>
+                <div class="stat">Treasures Found: <span id="treasures-found">0</span></div>
+                <div class="stat">Level: <span id="level">1</span></div>
+            </div>
+        </header>
+
+        <div class="game-area">
+            <canvas id="game-canvas" width="800" height="600"></canvas>
+
+            <div class="sidebar">
+                <div class="inventory">
+                    <h3>Latin Knowledge Gained</h3>
+                    <div id="learned-concepts" class="concepts-list">
+                        <!-- Learned concepts will appear here -->
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <h3>Controls</h3>
+                    <p>Use arrow keys to move</p>
+                    <p>Find treasures to learn Latin!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Treasure Discovery Modal -->
+        <div id="treasure-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>🎉 Treasure Found!</h2>
+                <div id="treasure-content">
+                    <!-- Treasure content will be inserted here -->
+                </div>
+                <button id="continue-btn" class="btn">Continue Exploring</button>
+            </div>
+        </div>
+
+        <!-- Game Over Modal -->
+        <div id="game-over-modal" class="modal">
+            <div class="modal-content">
+                <h2>🏆 Congratulations!</h2>
+                <p>You've completed the Latin Treasure Hunt!</p>
+                <div id="final-stats">
+                    <!-- Final stats will be shown here -->
+                </div>
+                <button id="play-again-btn" class="btn">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
