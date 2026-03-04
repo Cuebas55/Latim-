@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Latina — Aprenda Latim</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__content">
+      <div class="brand">LATINA</div>
+      <div class="subtitle">«Repetitio est mater studiorum»</div>
+      <div class="tagline">Quiz, estudo guiado, flashcards e modo professor.</div>
+    </div>
+  </header>
+
+  <nav class="tabs" aria-label="Navegação principal">
+    <button class="tab is-active" data-tab="quiz">Quiz</button>
+    <button class="tab" data-tab="study">Estudo</button>
+    <button class="tab" data-tab="flashcards">Flashcards</button>
+    <button class="tab" data-tab="teacher">Professor</button>
+  </nav>
+
+  <main class="container">
+    <!-- QUIZ -->
+    <section id="quiz" class="panel is-active" aria-live="polite"></section>
+
+    <!-- ESTUDO -->
+    <section id="study" class="panel" aria-live="polite">
+      <h2>Guia de estudo rápido</h2>
+      <div class="study-grid">
+        <article class="card">
+          <h3>Declinações (1ª e 2ª)</h3>
+          <div class="table">
+            <div class="row header"><div>Casos</div><div>1ª (puella)</div><div>2ª (servus)</div></div>
+            <div class="row"><div>Nominativo</div><div>puella</div><div>servus</div></div>
+            <div class="row"><div>Vocativo</div><div>puella</div><div>serve</div></div>
+            <div class="row"><div>Acusativo</div><div>puellam</div><div>servum</div></div>
+            <div class="row"><div>Genitivo</div><div>puellae</div><div>servi</div></div>
+            <div class="row"><div>Dativo</div><div>puellae</div><div>servo</div></div>
+            <div class="row"><div>Ablativo</div><div>puella</div><div>servo</div></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Verbo sum (presente)</h3>
+          <ul>
+            <li><strong>ego</strong> sum — eu sou/estou</li>
+            <li><strong>tu</strong> es — tu és/estás</li>
+            <li><strong>is/ea/id</strong> est — ele/ela/isso é/está</li>
+            <li><strong>nos</strong> sumus — nós somos/estamos</li>
+            <li><strong>vos</strong> estis — vós sois/estais</li>
+            <li><strong>ei/eae/ea</strong> sunt — eles/elas são/estão</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Pronúncia essencial</h3>
+          <ul>
+            <li><strong>V</strong> lê-se como <em>u</em> (vinum ≈ uinum).</li>
+            <li><strong>C</strong> é sempre /k/ (Caesar = kaisar).</li>
+            <li><strong>AE</strong> soa como “ai” (puellae ≈ puellai).</li>
+            <li><strong>G</strong> é sempre duro (legere = leguere).</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Provérbios latinos</h3>
+          <ul>
+            <li><strong>Carpe diem</strong> — aproveite o dia.</li>
+            <li><strong>Verba volant, scripta manent</strong> — as palavras voam, escritos permanecem.</li>
+            <li><strong>Fortes fortuna adiuvat</strong> — a sorte ajuda os fortes.</li>
+            <li><strong>Amor vincit omnia</strong> — o amor vence tudo.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- FLASHCARDS -->
+    <section id="flashcards" class="panel" aria-live="polite">
+      <div class="panel__header">
+        <h2>Flashcards</h2>
+        <div class="filters">
+          <select id="flashTopic"></select>
+          <button id="flashShuffle" class="btn btn--ghost">Embaralhar</button>
+        </div>
+      </div>
+      <div class="flashcard" id="flashcard" tabindex="0" role="button" aria-pressed="false">
+        <div class="flashcard__front">Clique para revelar</div>
+        <div class="flashcard__back"></div>
+      </div>
+      <div class="flash-controls">
+        <button id="flashPrev" class="btn btn--ghost">← Anterior</button>
+        <button id="flashNext" class="btn">Próximo →</button>
+      </div>
+    </section>
+
+    <!-- PROFESSOR -->
+    <section id="teacher" class="panel" aria-live="polite">
+      <h2>Modo Professor</h2>
+      <p>Adicione suas próprias questões. Elas ficam salvas no navegador.</p>
+      <form id="teacherForm" class="teacher-form">
+        <div class="form-grid">
+          <label>Questão
+            <input type="text" id="tQuestion" required />
+          </label>
+          <label>Tópico
+            <input type="text" id="tTopic" required />
+          </label>
+          <label>Nível
+            <select id="tLevel">
+              <option value="beginner">Iniciante</option>
+              <option value="intermediate">Intermediário</option>
+              <option value="advanced">Avançado</option>
+            </select>
+          </label>
+          <label>Alternativas (4, separadas por ;)
+            <input type="text" id="tOptions" placeholder="amor; timor; honor; labor" required />
+          </label>
+          <label>Resposta correta (0-3)
+            <input type="number" id="tCorrect" min="0" max="3" required />
+          </label>
+          <label>Explicação curta
+            <textarea id="tExplanation" rows="3" required></textarea>
+          </label>
+        </div>
+        <button class="btn" type="submit">Salvar questão</button>
+      </form>
+
+      <div class="teacher-list">
+        <h3>Questões personalizadas</h3>
+        <div id="customList" class="list"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>Feito para estudo de latim — disciplina, repetição e método.</div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
